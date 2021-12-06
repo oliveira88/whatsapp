@@ -7,6 +7,7 @@ class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    String valueText = '120';
     return DefaultTabController(
       length: 4,
       initialIndex: 1,
@@ -44,53 +45,16 @@ class Home extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ],
-                    bottom: PreferredSize(
-                      preferredSize: Size.fromHeight(48),
-                      child: Container(
-                        alignment: Alignment.topLeft,
-                        width: double.infinity,
-                        child: TabBar(
-                          tabs: [
-                            Tab(icon: Icon(Icons.camera_alt)),
-                            Container(
-                              child: Tab(
-                                child: Row(
-                                  children: [
-                                    Text('CHATS'),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      padding: EdgeInsets.all(6),
-                                      margin: EdgeInsets.only(left: 6),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: ColorTheme.GreyPrimary,
-                                      ),
-                                      child: Text(
-                                        '10',
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: ColorTheme.BlackPrimary,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                                width: MediaQuery.of(context).size.width / 5,
-                                child: Tab(text: 'STATUS')),
-                            SizedBox(
-                                width: MediaQuery.of(context).size.width / 5,
-                                child: Tab(text: 'CALLS')),
-                          ],
-                          isScrollable: true,
-                          indicatorSize: TabBarIndicatorSize.tab,
-                          labelColor: ColorTheme.GreenPrimary,
-                          indicatorColor: ColorTheme.GreenPrimary,
-                          unselectedLabelColor: ColorTheme.GreyPrimary,
-                        ),
-                      ),
+                    bottom: TabBar(
+                      tabs: const [
+                        Tab(icon: Icon(Icons.camera_alt)),
+                        Tab(child: Text('CHATS')),
+                        Tab(text: 'STATUS'),
+                        Tab(text: 'CALLS'),
+                      ],
+                      labelColor: ColorTheme.GreenPrimary,
+                      indicatorColor: ColorTheme.GreenPrimary,
+                      unselectedLabelColor: ColorTheme.GreyPrimary,
                     ),
                   ),
                 ];
