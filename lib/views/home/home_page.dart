@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:whatsapp/theme/theme.dart';
+import 'package:whatsapp/views/chat/chat_page.dart';
 
 class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    String valueText = '120';
     return DefaultTabController(
       length: 4,
       initialIndex: 1,
@@ -65,7 +64,7 @@ class Home extends StatelessWidget {
                     child: Text('Camera'),
                   ),
                   Center(
-                    child: Text('Chats'),
+                    child: ChatPage(),
                   ),
                   Center(child: Text('Status')),
                   Center(child: Text('Calls')),

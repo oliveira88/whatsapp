@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:whatsapp/theme/theme.dart';
-import 'package:whatsapp/views/home/home.dart';
+import 'package:whatsapp/views/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
           primaryColor: ColorTheme.Primary,
           scaffoldBackgroundColor: ColorTheme.BackgroundPrimary,
         ),
-        home: Home(),
+        home: const Home(),
       );
     });
   }
