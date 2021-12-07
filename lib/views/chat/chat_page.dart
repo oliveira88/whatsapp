@@ -6,15 +6,19 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Scaffold(
-        body: ListView.builder(
-          itemCount: 55,
-          itemBuilder: (context, itemBuilder) {
-            return Chat();
-          },
+    return Row(
+      children: [
+        Expanded(
+          child: Scaffold(
+            body: ListView.builder(
+              itemCount: 55,
+              itemBuilder: (context, itemBuilder) {
+                return Chat();
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
