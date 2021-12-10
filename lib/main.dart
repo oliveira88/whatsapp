@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/theme/theme.dart';
+import 'package:whatsapp/views/chat/single_chat.dart';
 import 'package:whatsapp/views/home/home_page.dart';
 
 void main() {
@@ -11,18 +12,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.light(
-            primary: ColorTheme.Primary,
+    return Builder(
+      builder: (context) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.light(
+              primary: ColorTheme.Primary,
+            ),
+            primaryColor: ColorTheme.Primary,
+            scaffoldBackgroundColor: ColorTheme.BackgroundPrimary,
           ),
-          primaryColor: ColorTheme.Primary,
-          scaffoldBackgroundColor: ColorTheme.BackgroundPrimary,
-        ),
-        home: const Home(),
-      );
-    });
+          initialRoute: '/',
+          routes: {
+            '/': (c) => const Home(),
+            '/single-chat': (c) => const SingleChat(),
+          },
+        );
+      },
+    );
   }
 }
