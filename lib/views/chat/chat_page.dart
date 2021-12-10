@@ -12,9 +12,7 @@ class ChatPage extends StatelessWidget {
           child: Scaffold(
             body: ListView.builder(
               itemCount: 55,
-              itemBuilder: (context, itemBuilder) {
-                return Chat();
-              },
+              itemBuilder: (context, _) => Chat(context),
             ),
           ),
         ),
