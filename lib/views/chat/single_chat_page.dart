@@ -1,74 +1,107 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/theme/theme.dart';
+import 'package:whatsapp/views/chat/chat_header_widget.dart';
 
 class SingleChat extends StatelessWidget {
   const SingleChat({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          titleSpacing: -4.0,
-          title: Row(
-            children: [
-              CircleAvatar(
-                radius: 16.0,
-                backgroundImage: null,
-                backgroundColor: Colors.grey[500],
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 8.0),
+    final _textController = TextEditingController();
+    return Scaffold(
+      appBar: ChatHeader(
+        title: 'MAIOR NOME DE TODOS LOS T',
+        subtitle: 'You',
+      ),
+      body: Column(
+        children: [
+          Text('Bomdia'),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'MAIOR NOME DE TODOS LOS T',
-                        style: TextStyle(fontSize: 16),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        'You',
-                        style: TextStyle(fontSize: 12),
-                        overflow: TextOverflow.ellipsis,
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+                        decoration: BoxDecoration(
+                          color: ColorTheme.Primary,
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                        ),
+                        child: Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.emoji_emotions,
+                                color: ColorTheme.GreyPrimary,
+                              ),
+                            ),
+                            Flexible(
+                              child: TextField(
+                                controller: _textController,
+                                cursorColor: ColorTheme.GreenPrimary,
+                                textCapitalization:
+                                    TextCapitalization.sentences,
+                                cursorWidth: 2,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Message',
+                                  hintStyle: TextStyle(
+                                    color: ColorTheme.GreyPrimary,
+                                  ),
+                                ),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.attach_file,
+                                color: ColorTheme.GreyPrimary,
+                              ),
+                            ),
+                            _textController.text.isEmpty
+                                ? IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.camera_alt,
+                                      color: ColorTheme.GreyPrimary,
+                                    ),
+                                  )
+                                : SizedBox(),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
-              )
-            ],
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+                  decoration: BoxDecoration(
+                    color: ColorTheme.GreenPrimary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      _textController.text.isEmpty
+                          ? Icons.keyboard_voice
+                          : Icons.send,
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.videocam,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.call,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.more_vert,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-          ],
-          elevation: 0,
-        ),
-        body: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: Text('BOMDIA'),
-        ),
+        ],
       ),
     );
   }
