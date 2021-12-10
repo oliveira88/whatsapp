@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/theme/theme.dart';
-import 'package:whatsapp/views/chat/single_chat.dart';
+import 'package:whatsapp/views/chat/single_chat_page.dart';
 import 'package:whatsapp/views/home/home_page.dart';
 
 void main() {
