@@ -3,6 +3,7 @@ import 'package:whatsapp/theme/theme.dart';
 import 'package:whatsapp/views/chat/chat_header_widget.dart';
 import 'package:whatsapp/views/chat/chat_input_message_widget.dart';
 import 'package:whatsapp/views/chat/chat_text_widget.dart';
+import 'package:whatsapp/views/chat/message_balloon_widget.dart';
 
 class Teste {
   final String message;
@@ -55,61 +56,7 @@ class SingleChat extends StatelessWidget {
             child: ListView.builder(
               itemCount: messages.length,
               itemBuilder: (context, index) {
-                return Flex(
-                  direction: Axis.horizontal,
-                  mainAxisAlignment: messages[index]['fromYou'] == 'true'
-                      ? MainAxisAlignment.end
-                      : MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6,
-                        horizontal: 8,
-                      ),
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 4,
-                        horizontal: 8.0,
-                      ),
-                      constraints: BoxConstraints(
-                        maxWidth: MediaQuery.of(context).size.width * 0.7,
-                        minWidth: MediaQuery.of(context).size.width * 0.2,
-                      ),
-                      decoration: messages[index]['fromYou'] == 'true'
-                          ? BoxDecoration(
-                              color: ColorTheme.GreenSecondary,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12.0),
-                              ),
-                            )
-                          : BoxDecoration(
-                              color: ColorTheme.Primary,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12.0),
-                              ),
-                            ),
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 14),
-                        child: Stack(
-                          clipBehavior: Clip.none,
-                          children: [
-                            Positioned(
-                              top: 18,
-                              right: 0,
-                              child: Text(
-                                '13:03',
-                                style: TextStyle(color: ColorTheme.GreyPrimary),
-                              ),
-                            ),
-                            Text(
-                              messages[index]['message'] ?? '',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                );
+                return MessageBalloonWidget(message: messages[index]);
               },
             ),
           ),
